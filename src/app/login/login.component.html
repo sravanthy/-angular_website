@@ -1,0 +1,25 @@
+<div class="imgcontainer">
+    <img src="assets/img_avatar2.png" alt="Avatar" class="avatar">
+</div>
+<form [formGroup]="loginForm">
+    <div class="container">
+
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" formControlName="uname" required>
+        <span class="error" *ngIf="loginForm.controls.uname.touched && loginForm.controls.uname.invalid && loginForm.controls.uname.errors.required">User Name cannot be blank</span>
+        <span class="error" *ngIf="loginForm.controls.uname.touched && loginForm.controls.uname.invalid && loginForm.controls.uname.errors.minlength">User Name min characters should be more than 3</span>
+      <br/><label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" formControlName="psw" required>
+        <span class="error" *ngIf="loginForm.controls.psw.touched && loginForm.controls.psw.invalid && loginForm.controls.psw.errors.required">Password cannot be blank</span>
+        <span class="error" *ngIf="loginForm.controls.psw.touched && loginForm.controls.psw.invalid && loginForm.controls.psw.errors.minlength">Password min characters should be more than 3</span>
+        <button type="submit" (click)="loginSubmit()">Login</button>
+        <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+        <button type="button" class="cancelbtn">Cancel</button>
+        <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+</form>
